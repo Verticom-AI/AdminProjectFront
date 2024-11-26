@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل ادمین</title>
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- هدر -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">پنل ادمین</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="adminMenu">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">مشاوره‌ها</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">محصولات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">تنظیمات</a></li>
+                </ul>
+                <a href="logout.html" class="btn btn-danger">خروج</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- لیست مشاوره‌ها -->
+    <main class="container my-5">
+        <h2 class="mb-4">مشاوره‌های منتظر پاسخ</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>شماره</th>
+                        <th>نام کاربر</th>
+                        <th>شماره تماس</th>
+                        <th>نوع مشاوره</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody id="consultations-list">
+                    <!-- پر می‌شود با جاوااسکریپت -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- نمایش جزئیات مشاوره -->
+        <div id="consultation-details" class="mt-5 d-none">
+            <h4>جزئیات مشاوره</h4>
+            <p><strong>کاربر:</strong> <span id="user-name"></span></p>
+            <p><strong>متن شرح حال:</strong> <span id="description"></span></p>
+            <div id="files">
+                <h5>فایل‌های ارسال‌شده:</h5>
+                <ul id="file-list"></ul>
+            </div>
+
+            <!-- پاسخ به مشاوره -->
+            <div class="mt-4">
+                <textarea id="response-text" class="form-control mb-3" placeholder="پاسخ خود را وارد کنید"></textarea>
+                <button id="send-response" class="btn btn-primary">ارسال پاسخ</button>
+            </div>
+        </div>
+
+        <!-- ایجاد نسخه -->
+        <div id="create-prescription" class="mt-5 d-none">
+            <h4>ایجاد نسخه درمانی</h4>
+            <div class="mb-3">
+                <input type="text" id="search-product" class="form-control" placeholder="جستجوی محصول">
+            </div>
+            <div id="product-list" class="mb-3">
+                <!-- محصولات با جاوااسکریپت پر می‌شوند -->
+            </div>
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>نام محصول</th>
+                        <th>تعداد</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody id="prescription-table">
+                    <!-- پر می‌شود با جاوااسکریپت -->
+                </tbody>
+            </table>
+            <button id="finalize-prescription" class="btn btn-success">ارسال نسخه به کاربر</button>
+        </div>
+        
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

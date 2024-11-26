@@ -1,0 +1,28 @@
+/* استایل پایه */
+body {
+    font-family: 'IRANSans', sans-serif;
+}
+
+/* جدول مشاوره‌ها */
+.table {
+    text-align: center;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+/* جزئیات مشاوره */
+#consultation-details, #create-prescription {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* دکمه‌های اصلی */
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+}

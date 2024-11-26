@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود به حساب کاربری | وب سلامتی</title>
+    <!-- بوت‌استرپ -->
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <!-- استایل‌های سفارشی -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- هدر -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">وب سلامتی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">محصولات</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="login.html">ورود</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">ثبت‌نام</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="central-const.html">مشاوره</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- فرم لاگین -->
+    <main class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-5 shadow-sm" style="max-width: 400px; width: 100%;">
+        <h3 class="text-center mb-4">ورود به حساب کاربری</h3>
+        <form id="login-form" action="#" method="POST">
+            <!-- فیلد ایمیل -->
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" name="email" placeholder="ایمیل یا شماره تلفن" required>
+                <label for="email">ایمیل یا شماره تلفن</label>
+            </div>
+
+            <!-- دکمه تایید ایمیل -->
+            <div class="d-grid mb-3">
+                <button type="button" class="btn btn-dark rounded-pill" id="next-button">بعدی</button>
+            </div>
+
+            <!-- فیلد رمز عبور (در ابتدا مخفی) -->
+            <div id="password-step" style="display: none;">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="رمز عبور" required>
+                    <label for="password">رمز عبور</label>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">مرا به خاطر بسپار</label>
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark rounded-pill">ورود</button>
+                </div>
+            </div>
+            
+            <!-- لینک ثبت‌نام و فراموشی رمز عبور -->
+            <div class="text-center mt-3">
+                <p>حساب کاربری ندارید؟ <a href="register.html">ثبت‌نام</a></p>
+                <a href="forget-password.html" class="text-muted">فراموشی رمز عبور؟</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+
+    <!-- اسکریپت‌ها -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت‌نام | وب سلامتی</title>
+    <!-- بوت‌استرپ -->
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <!-- استایل‌های سفارشی -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- هدر -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">وب سلامتی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">محصولات</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="login.html">ورود</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">ثبت‌نام</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="central-const.html">مشاوره</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+    </header>
+    
+
+<!-- فرم ثبت‌نام -->
+<main class="container my-5">
+    <div class="text-center mb-4">
+        <h3>ثبت‌نام در وب سلامتی</h3>
+        <p>برای استفاده از خدمات ما، لطفاً فرم زیر را پر کنید.</p>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <form action="#" method="POST" class="p-4 border rounded shadow-sm bg-white">
+                <!-- نام و نام خانوادگی -->
+                <div class="row mb-3">
+                    <div class="col-md-6 form-floating">
+                        <input type="text" class="form-control" id="first-name" name="first_name" placeholder="نام" required>
+                        <label for="first-name">نام</label>
+                    </div>
+                    <div class="col-md-6 form-floating">
+                        <input type="text" class="form-control" id="last-name" name="last_name" placeholder="نام خانوادگی" required>
+                        <label for="last-name">نام خانوادگی</label>
+                    </div>
+                </div>
+                <!-- جنسیت -->
+                <div class="mb-3">
+                    <label class="form-label">جنسیت</label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+                            <label class="form-check-label" for="male">مرد  </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
+                            <label class="form-check-label" for="female">زن  </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- تاریخ تولد -->
+                <div class="mb-3">
+                    <label for="birth-date" class="form-label">تاریخ تولد</label>
+                    <div class="row">
+                        <div class="col-md-4 form-floating">
+                            <select class="form-select" id="birth-day" name="birth_day" required>
+                                <option value="" disabled selected>روز</option>
+                                <!-- گزینه‌ها -->
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <!-- اضافه کنید تا 31 -->
+                            </select>
+                            <label for="birth-day">روز</label>
+                        </div>
+                        <div class="col-md-4 form-floating">
+                            <select class="form-select" id="birth-month" name="birth_month" required>
+                                <option value="" disabled selected>ماه</option>
+                                <option value="1">فروردین</option>
+                                <option value="2">اردیبهشت</option>
+                                <!-- اضافه کنید -->
+                            </select>
+                            <label for="birth-month">ماه</label>
+                        </div>
+                        <div class="col-md-4 form-floating">
+                            <select class="form-select" id="birth-year" name="birth_year" required>
+                                <option value="" disabled selected>سال</option>
+                                <!-- اضافه کردن سال‌ها -->
+                                <option value="2000">2000</option>
+                                <option value="2001">2001</option>
+                            </select>
+                            <label for="birth-year">سال</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- ایمیل -->
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="ایمیل" required>
+                    <label for="email">ایمیل</label>
+                </div>
+                <!-- تماس -->
+                <div class="form-floating mb-3">
+                    <input type="tel" class="form-control" id="tel" name="tel" placeholder="شماره تماس" required>
+                    <label for="tel">شماره تماس</label>
+                </div>
+                <!-- رمز عبور -->
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="رمز عبور" required>
+                    <label for="password">رمز عبور</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="confirm-password" name="confirm_password" placeholder="تایید رمز عبور" required>
+                    <label for="confirm-password">تایید رمز عبور</label>
+                </div>
+                <!-- دکمه ثبت‌نام -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark rounded-pill">ثبت‌نام</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+    <!-- اسکریپت‌ها -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

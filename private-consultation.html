@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاوره اختصاصی | وب سلامتی</title>
+    <!-- بوت‌استرپ -->
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <!-- استایل‌های سفارشی -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/private-consulation.css">
+</head>
+<body>
+    <script src="js/private-consultation.js"></script>
+
+    <!-- هدر -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">وب سلامتی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">محصولات</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="login.html">ورود</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">ثبت‌نام</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="central-const.html">مشاوره</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <h2 class="text-center mb-4">مشاوره اختصاصی</h2>
+        <p class="text-center mb-5">لطفاً اطلاعات خود را وارد کنید و در صورت نیاز، تصاویر سونوگرافی خود را ارسال کنید.</p>
+
+        <form action="#" method="POST" enctype="multipart/form-data" class="p-4 border rounded shadow-sm bg-white" style="max-width: 500px; margin: 0 auto;">
+            <!-- نام و نام خانوادگی -->
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" name="name" placeholder="نام و نام خانوادگی" required>
+                <label for="name">نام و نام خانوادگی</label>
+            </div>
+
+            <!-- شماره تماس -->
+            <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="شماره تماس" required>
+                <label for="phone">شماره تماس</label>
+            </div>
+
+            <!-- موضوع مشاوره -->
+            <div class="form-floating mb-3">
+                <textarea class="form-control" id="topic" name="topic" placeholder="موضوع مشاوره" rows="5" style="height: 100px;" required></textarea>
+                <label for="topic">شرح حال خود را به طور کامل شرح دهید</label>
+            </div>
+
+            <!-- آپلود عکس -->
+            <div class="mb-3">
+                <label for="images" class="form-label">ارسال عکس سونوگرافی (حداکثر 5 عکس)</label>
+                <input type="file" class="form-control" id="images" name="images[]" accept="image/*" multiple required>
+ <!-- پیام خطا -->
+ <small id="error-message" class="text-danger d-none">پیام خطا در اینجا نمایش داده می‌شود.</small>
+    
+ <small class="text-muted">فرمت‌های قابل قبول: JPG، PNG، JPEG</small>                
+            </div>
+
+<!-- بخش پیش‌نمایش تصاویر -->
+<div id="preview-container" class="row g-3 mt-3">
+    <!-- پیش‌نمایش فایل‌ها اینجا نمایش داده می‌شود -->
+</div>
+
+                     <!-- ضبط ویس -->
+                     <div class="audio-control">
+                        <button type="button" id="record-button" class="record-button">🎙️</button>
+                        <span id="record-status" class="text-muted">برای ضبط دکمه را نگه دارید</span>
+                    </div>
+        
+                    <!-- نمایش پیش‌نمایش فایل‌های صوتی -->
+                    <div id="audio-preview" class="audio-preview"></div>
+        
+                    <!-- دکمه ارسال -->
+                    <button type="submit" id="special-consultation-button" class="btn btn-success btn-lg w-100 mt-3">ارسال درخواست</button>
+                </form>
+            </main>
+        
+            <script>
+                const recordButton = document.getElementById("record-button");
+                const recordStatus = document.getElementById("record-status");
+                const audioPreview = document.getElementById("audio-preview");
+        
+                let mediaRecorder;
+                let audioChunks = [];
+                let isRecording = false;
+        
+                // شروع ضبط هنگام نگه داشتن دکمه
+                recordButton.addEventListener("mousedown", async () => {
+                    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                        alert("مرورگر شما قابلیت ضبط صدا را پشتیبانی نمی‌کند.");
+                        return;
+                    }
+        
+                    try {
+                        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                        mediaRecorder = new MediaRecorder(stream);
+        
+                        // وقتی ضبط شروع می‌شود
+                        mediaRecorder.start();
+                        isRecording = true;
+                        recordStatus.textContent = "در حال ضبط...";
+                        audioChunks = [];
+        
+                        mediaRecorder.addEventListener("dataavailable", event => {
+                            audioChunks.push(event.data);
+                        });
+                    } catch (error) {
+                        console.error("خطا در دسترسی به میکروفون:", error);
+                    }
+                });
+        
+                // توقف ضبط هنگام برداشتن دست
+                recordButton.addEventListener("mouseup", () => {
+                    if (isRecording && mediaRecorder) {
+                        mediaRecorder.stop();
+                        isRecording = false;
+                        recordStatus.textContent = "برای ضبط دوباره دکمه را نگه دارید";
+        
+                        mediaRecorder.addEventListener("stop", () => {
+                            const audioBlob = new Blob(audioChunks, { type: "audio/mp3" });
+                            const audioUrl = URL.createObjectURL(audioBlob);
+        
+                            // نمایش پیش‌نمایش فایل صوتی
+                            const audioElement = document.createElement("audio");
+                            audioElement.src = audioUrl;
+                            audioElement.controls = true;
+        
+                            // افزودن به پیش‌نمایش
+                            audioPreview.appendChild(audioElement);
+                        });
+                    }
+                });
+        
+                // سازگاری برای لمس (Touch Devices)
+                recordButton.addEventListener("touchstart", (e) => {
+                    e.preventDefault();
+                    recordButton.dispatchEvent(new Event("mousedown"));
+                });
+        
+                recordButton.addEventListener("touchend", (e) => {
+                    e.preventDefault();
+                    recordButton.dispatchEvent(new Event("mouseup"));
+                });
+            </script>
+</body>
+</html>

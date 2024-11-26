@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه وب سلامتی</title>
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <style>
+        .cart-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .cart-controls button {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+
+        .cart-controls span {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .offcanvas {
+            background-color: #f8f9fa;
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-quantity {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- هدر -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a href="#" class="navbar-brand">فروشگاه وب سلامتی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html">محصولات</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="login.html">ورود</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.html">ثبت‌نام</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="central-const.html">مشاوره</a></li>
+    
+                    </ul>
+
+                </ul>
+                <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart" aria-controls="cart">
+                    مشاهده سبد خرید
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- محصولات -->
+    <main class="container my-5">
+        <h1 class="text-center mb-4">محصولات</h1>
+        <div class="row" id="products">
+            <!-- محصولات با جاوااسکریپت اضافه می‌شوند -->
+        </div>
+    </main>
+
+    <!-- سبد خرید -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="cartLabel">
+        <div class="offcanvas-header">
+            <h5 id="cartLabel">سبد خرید</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul id="cart-items" class="list-group mb-3">
+                <!-- آیتم‌های سبد خرید اضافه می‌شوند -->
+            </ul>
+            <div class="d-flex justify-content-between">
+                <span>جمع کل:</span>
+                <strong id="total-price">0 تومان</strong>
+            </div>
+            <button class="btn btn-primary w-100 mt-3">پرداخت</button>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
