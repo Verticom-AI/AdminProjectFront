@@ -1,28 +1,152 @@
-/* استایل پایه */
+/* تنظیمات پایه */
 body {
     font-family: 'IRANSans', sans-serif;
+    background-color: #f4f4f7; /* پس‌زمینه ملایم */
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
 
-/* جدول مشاوره‌ها */
-.table {
-    text-align: center;
+/* جعبه چت */
+.chat-box {
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    background-color: #ffffff;
+    height: 350px;
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* ترتیب پیام‌ها از بالا به پایین */
+    padding: 10px;
 }
 
-.table th, .table td {
-    vertical-align: middle;
+.chat-message {
+    margin-bottom: 15px;
+    padding: 12px 20px;
+    border-radius: 20px;
+    max-width: 75%;
+    font-size: 15px;
+    line-height: 1.5;
+    display: inline-block;
 }
 
-/* جزئیات مشاوره */
-#consultation-details, #create-prescription {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #f9f9f9;
+.chat-message.admin {
+    background-color: #0071e3; /* رنگ آبی  */
+    color: white;
+    text-align: right;
+    margin-left: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* دکمه‌های اصلی */
-.btn {
-    padding: 10px 20px;
-    font-size: 1rem;
+.chat-message.user {
+    background-color: #e8e8ea; /* رنگ خاکستری روشن */
+    color: #333;
+    text-align: left;
+    margin-right: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* لیست محصولات */
+.product-list {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* دکمه ضبط صدا */
+#record-button {
+    width: 60px;
+    height: 60px;
+    background-color: #0071e3; /* رنگ آبی اپل */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#record-button:hover {
+    background-color: #005bb5; /* آبی تیره‌تر */
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+#record-button:active {
+    background-color: #ff3b30; /* قرمز ضبط */
+    transform: scale(0.9);
+}
+
+#record-button.recording {
+    background-color: #ff3b30;
+    color: white;
+    box-shadow: 0 6px 15px rgba(255, 59, 48, 0.3); /* سایه قرمز */
+}
+
+/* دکمه‌ها */
+button {
+    font-family: 'IRANSans', sans-serif;
+    font-size: 15px;
     font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+/* استایل‌های عمومی */
+input, textarea {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px 15px;
+    width: 100%;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #0071e3;
+    box-shadow: 0 0 5px rgba(0, 113, 227, 0.3);
+    outline: none;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'IRANSans', sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 18px;
 }
