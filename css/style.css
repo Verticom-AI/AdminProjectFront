@@ -26,7 +26,7 @@ body {
 }
 
 .navbar .nav-link:hover {
-    color: #007bff; /* تغییر رنگ در هاور */
+    color: #63676b; /* تغییر رنگ در هاور */
 }
 
 /* تنظیمات فرم‌ها */
@@ -42,7 +42,7 @@ form {
 }
 
 input::placeholder {
-    color: #adb5bd;
+    color: #000000;
     font-size: 0.9rem;
 }
 
@@ -50,10 +50,11 @@ input {
     border-radius: 50px; /* گوشه‌های گرد برای فیلدها */
     padding: 10px 15px;
     border: 1px solid #ddd;
+
 }
 
 input:focus {
-    border-color: #007bff; /* رنگ آبی در فوکوس */
+    border-color: #afb3b7; /* رنگ آبی در فوکوس */
     outline: none;
 }
 
@@ -157,9 +158,9 @@ form {
 /* حالت فوکوس برای input و select */
 .form-floating input:focus,
 .form-floating select:focus {
-    border-color: #007bff;
+    border-color: #404142;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 5px rgba(97, 126, 157, 0.25);
 }
 
 /* استایل برای label */
@@ -176,7 +177,7 @@ form {
     pointer-events: none; /* جلوگیری از کلیک روی هینت */
 }
 
-/* تغییر موقعیت label هنگام فوکوس یا تایپ */
+/* تغییر موقعیت label هنگام فوکوس یا تایپ    txt up*/
 .form-floating input:focus + label,
 .form-floating input:not(:placeholder-shown) + label,
 .form-floating select:focus + label,
@@ -184,6 +185,7 @@ form {
     top: -1px; /* حرکت به بالای فیلد */
     font-size: 0.85rem; /* کوچک‌تر شدن فونت */
     color: #007bff; /* تغییر رنگ به آبی */
+
 }
 
 /* مخفی کردن placeholder */
@@ -213,21 +215,58 @@ form {
 }
 
 button {
-    background: linear-gradient(135deg, #007bff, #6f42c1); /* گرادیان آبی به بنفش */
-    color: #fff; /* متن سفید */
-    font-weight: bold;
-    border: none; /* حذف حاشیه */
-    border-radius: 50px; /* گوشه‌های گرد */
-    padding: 12px 20px; /* فاصله داخلی */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه نرم */
+    display: inline-block;
+    background: #f5f5f7; /* رنگ پس‌زمینه شبیه اپل */
+    color: #1d1d1f; /* متن مشکی با کنتراست بالا */
+    font-weight: 600; /* وزن متن کمی سنگین‌تر */
+    font-size: 16px; /* اندازه متن */
+    padding: 12px 24px; /* فاصله داخلی */
+    border: 1px solid #d2d2d7; /* حاشیه ظریف */
+    border-radius: 24px; /* گوشه‌های گرد */
+    text-decoration: none; /* حذف خط زیر متن */
     transition: all 0.3s ease; /* انیمیشن نرم */
-}
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه ظریف */
+    text-align: center;
+    line-height: 1.5;}
 
 button:hover {
-    background: linear-gradient(135deg, #6f42c1, #007bff); /* تغییر جهت گرادیان در هاور */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* افزایش سایه */
-    transform: translateY(-2px); /* حرکت به بالا */
+    background: #e5e5ea; /* تغییر رنگ در هاور */
+    color: #1d1d1f; /* متن مشکی */
+    border-color: #c7c7cc; /* تغییر رنگ حاشیه */
+    transform: translateY(-2px); /* حرکت کمی به بالا */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* افزایش سایه */
 }
+
+
+.btn-apple {
+    display: inline-block;
+    background: #f5f5f7; /* رنگ پس‌زمینه شبیه اپل */
+    color: #1d1d1f; /* متن مشکی با کنتراست بالا */
+    font-weight: 600; /* وزن متن کمی سنگین‌تر */
+    font-size: 16px; /* اندازه متن */
+    padding: 12px 24px; /* فاصله داخلی */
+    border: 1px solid #d2d2d7; /* حاشیه ظریف */
+    border-radius: 24px; /* گوشه‌های گرد */
+    text-decoration: none; /* حذف خط زیر متن */
+    transition: all 0.3s ease; /* انیمیشن نرم */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه ظریف */
+    text-align: center;
+    line-height: 1.5;
+}
+
+.btn-apple:hover {
+    background: #e5e5ea; /* تغییر رنگ در هاور */
+    color: #1d1d1f; /* متن مشکی */
+    border-color: #c7c7cc; /* تغییر رنگ حاشیه */
+    transform: translateY(-2px); /* حرکت کمی به بالا */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* افزایش سایه */
+}
+.btn-apple:active {
+    background: #d2d2d7; /* رنگ کمی تیره‌تر */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* کاهش سایه */
+    transform: translateY(1px); /* حرکت کمی به پایین */
+}
+
 
 .form-floating input:focus,
 .form-floating select:focus {
@@ -270,4 +309,57 @@ button:hover {
 
 .card:nth-child(3) {
     animation-delay: 0.5s; /* کارت سوم */
+}
+
+
+button {
+    display: inline-block;
+    background: #f5f5f7; /* رنگ پس‌زمینه شبیه اپل */
+    color: #1d1d1f; /* متن مشکی با کنتراست بالا */
+    font-weight: 600; /* وزن متن کمی سنگین‌تر */
+    font-size: 16px; /* اندازه متن */
+    padding: 12px 24px; /* فاصله داخلی */
+    border: 1px solid #d2d2d7; /* حاشیه ظریف */
+    border-radius: 24px; /* گوشه‌های گرد */
+    text-decoration: none; /* حذف خط زیر متن */
+    transition: all 0.3s ease; /* انیمیشن نرم */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه ظریف */
+    text-align: center;
+    line-height: 1.5;
+}
+
+button:hover {
+    background: #e5e5ea; /* تغییر رنگ در هاور */
+    color: #1d1d1f; /* متن مشکی */
+    border-color: #c7c7cc; /* تغییر رنگ حاشیه */
+    transform: translateY(-2px); /* حرکت کمی به بالا */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* افزایش سایه */
+}
+.btn-apple {
+    display: inline-block;
+    background: #f5f5f7; /* رنگ پس‌زمینه شبیه اپل */
+    color: #1d1d1f; /* متن مشکی با کنتراست بالا */
+    font-weight: 600; /* وزن متن کمی سنگین‌تر */
+    font-size: 16px; /* اندازه متن */
+    padding: 12px 24px; /* فاصله داخلی */
+    border: 1px solid #d2d2d7; /* حاشیه ظریف */
+    border-radius: 24px; /* گوشه‌های گرد */
+    text-decoration: none; /* حذف خط زیر متن */
+    transition: all 0.3s ease; /* انیمیشن نرم */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه ظریف */
+    text-align: center;
+    line-height: 1.5;
+}
+
+.btn-apple:hover {
+    background: #e5e5ea; /* تغییر رنگ در هاور */
+    color: #1d1d1f; /* متن مشکی */
+    border-color: #c7c7cc; /* تغییر رنگ حاشیه */
+    transform: translateY(-2px); /* حرکت کمی به بالا */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* افزایش سایه */
+}
+.btn-apple:active {
+    background: #d2d2d7; /* رنگ کمی تیره‌تر */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* کاهش سایه */
+    transform: translateY(1px); /* حرکت کمی به پایین */
 }

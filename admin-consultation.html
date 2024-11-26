@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مدیریت چت</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
 
     <style>
 
@@ -43,7 +43,7 @@
 
         .chat-container {
             display: flex;
-            height: 90vh;
+            height: 50vh;
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -61,6 +61,11 @@
             height: calc(100% - 80px);
             overflow-y: auto;
             border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            margin-bottom: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
         }
 
         .chat-message {
@@ -96,7 +101,7 @@
             display: flex;
             gap: 10px;
         }
-
+/*  recording buuton  */
         #action-button {
             width: 50px;
             height: 50px;
@@ -106,8 +111,14 @@
         }
 
         #action-button.recording {
-            background-color: #ff3b30 !important;
-            box-shadow: 0 0 10px rgba(255, 59, 48, 0.5);
+            background-color: #cbcb5a !important;
+            box-shadow: 0 0 10px rgba(217, 83, 161, 0.5);
+        }
+        #action-button:hover {
+            background-color: #f1f1f1;
+            color: #333;
+            margin-right: auto;
+            text-align: left;
         }
 
         /* اسلاید بار */
@@ -158,6 +169,15 @@
         .chat-list .chat-item:hover {
             background-color: #f1f1f1;
         }
+        
+.audio-preview {
+    margin-top: 20px;
+}
+
+.audio-preview audio {
+    display: block;
+    margin: 10px auto;
+}
     </style>
 </head>
 
@@ -185,7 +205,7 @@
     </header>
     
     <div class="container my-4">
-        <button id="toggle-chat-list" class="btn btn-primary mb-3">مشاوره‌ها</button>
+        <button id="toggle-chat-list" class="btn btn-dark mb-3">مشاوره‌ها</button>
 
         <div class="chat-container">
             <!-- فضای چت -->
@@ -195,7 +215,7 @@
                 </div>
                 <div class="chat-footer">
                     <input type="text" id="chat-input" class="form-control" placeholder="پیام خود را بنویسید...">
-                    <button id="action-button" class="btn btn-danger">🎙️</button>
+                    <button id="action-button" class="btn btn-dark">🎙️</button>
                 </div>
             </div>
         </div>
@@ -234,7 +254,7 @@
                     <!-- محصولات اضافه شده به نسخه اینجا نمایش داده می‌شوند -->
                 </tbody>
             </table>
-            <button id="finalize-prescription" class="btn btn-success w-100 mt-3">ارسال نسخه به کاربر</button>
+            <button id="finalize-prescription" class="btn btn-dark w-100 mt-3">ارسال نسخه به کاربر</button>
         </div>
     
         <script>

@@ -9,10 +9,42 @@
     <!-- استایل‌های سفارشی -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/consultation.css">
+<style>
+.btn-apple {
+    display: inline-block;
+    background: #f5f5f7; /* رنگ پس‌زمینه شبیه اپل */
+    color: #1d1d1f; /* متن مشکی با کنتراست بالا */
+    font-weight: 600; /* وزن متن کمی سنگین‌تر */
+    font-size: 16px; /* اندازه متن */
+    padding: 12px 24px; /* فاصله داخلی */
+    border: 1px solid #d2d2d7; /* حاشیه ظریف */
+    border-radius: 24px; /* گوشه‌های گرد */
+    text-decoration: none; /* حذف خط زیر متن */
+    transition: all 0.3s ease; /* انیمیشن نرم */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه ظریف */
+    text-align: center;
+    line-height: 1.5;
+}
+
+.btn-apple:hover {
+    background: #e5e5ea; /* تغییر رنگ در هاور */
+    color: #1d1d1f; /* متن مشکی */
+    border-color: #c7c7cc; /* تغییر رنگ حاشیه */
+    transform: translateY(-2px); /* حرکت کمی به بالا */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* افزایش سایه */
+}
+.btn-apple:active {
+    background: #d2d2d7; /* رنگ کمی تیره‌تر */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* کاهش سایه */
+    transform: translateY(1px); /* حرکت کمی به پایین */
+}
+
+
+</style>
 </head>
 <body>
-     <!-- هدر -->
-     <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <!-- هدر -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">وب سلامتی</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -53,7 +85,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">مشاوره فیبروم</h5>
                         <p class="card-text">مشاوره درباره درمان‌های گیاهی و پزشکی برای فیبروم.</p>
-                        <a href="fibroid-consultation.html" class="btn btn-primary">مشاهده</a>
+                        <a href="fibroid-consultation.html" class="btn btn-apple">مشاهده</a>
                     </div>
                 </div>
             </div>
@@ -64,7 +96,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">مشاوره ریزش مو</h5>
                         <p class="card-text">راهنمایی در مورد جلوگیری از ریزش مو و تقویت آن.</p>
-                        <a href="hair-loss-consultation.html" class="btn btn-primary">مشاهده</a>
+                        <a href="hair-loss-consultation.html" class="btn btn-apple">مشاهده</a>
                     </div>
                 </div>
             </div>
@@ -75,7 +107,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">مشاوره کبد چرب</h5>
                         <p class="card-text">مشاوره درباره راه‌های پیشگیری و درمان کبد چرب.</p>
-                        <a href="fatty-liver-consultation.html" class="btn btn-primary">مشاهده</a>
+                        <a href="fatty-liver-consultation.html" class="btn btn-apple">مشاهده</a>
                     </div>
                 </div>
             </div>

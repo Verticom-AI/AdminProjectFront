@@ -9,6 +9,31 @@
     <!-- استایل‌های سفارشی -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/private-consulation.css">
+<style>
+
+
+/*  recording buuton  */
+#action-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        #action-button.recording {
+            background-color: #cbcb5a !important;
+            box-shadow: 0 0 10px rgba(217, 83, 161, 0.5);
+        }
+        #action-button:hover {
+            background-color: #f1f1f1;
+            color: #333;
+            margin-right: auto;
+            text-align: left;
+        }
+
+
+</style>
 </head>
 <body>
     <script src="js/private-consultation.js"></script>
@@ -74,7 +99,7 @@
 
                      <!-- ضبط ویس -->
                      <div class="audio-control">
-                        <button type="button" id="record-button" class="record-button">🎙️</button>
+                        <button type="button" id="record-button" class="action-button" >🎙️</button>
                         <span id="record-status" class="text-muted">برای ضبط دکمه را نگه دارید</span>
                     </div>
         
@@ -82,7 +107,7 @@
                     <div id="audio-preview" class="audio-preview"></div>
         
                     <!-- دکمه ارسال -->
-                    <button type="submit" id="special-consultation-button" class="btn btn-success btn-lg w-100 mt-3">ارسال درخواست</button>
+                    <button type="submit" id="special-consultation-button" class="btn btn-apple btn-lg w-100 mt-3" >ارسال درخواست</button>
                 </form>
             </main>
         

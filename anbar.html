@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت انبار | وب سلامتی</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.rtl.min.css">
+    <style>
+        body {
+            font-family: 'IRANSans', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .details-row {
+            display: none;
+            background-color: #f1f1f1;
+        }
+
+        .details-row td {
+            padding: 10px;
+        }
+
+        .details-toggle {
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .details-toggle:hover {
+            text-decoration: underline;
+        }
+
+        .badge-paid {
+            background-color: #28a745;
+        }
+
+        .badge-unpaid {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+     <!-- هدر -->
+     <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">وب سلامتی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="inventory-management.html">مدیریت انبار</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- محتوای اصلی -->
+    <div class="container my-4">
+        <h1 class="text-center mb-4">مدیریت انبار</h1>
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>نام کاربر</th>
+                    <th>شماره سفارش</th>
+                    <th>وضعیت پرداخت</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody id="order-list">
+                <!-- لیست سفارش‌ها -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // داده‌های نمونه
+        const orders = [
+            {
+                id: 1,
+                user: "علی محمدی",
+                orderNumber: "123456",
+                paymentStatus: "پرداخت‌شده",
+                address: "تهران، خیابان ولیعصر، پلاک 50",
+                phone: "09121234567",
+                postalCode: "1234567890",
+                products: [
+                    { name: "چای سبز", quantity: 2 },
+                    { name: "عسل طبیعی", quantity: 1 },
+                ],
+            },
+            {
+                id: 2,
+                user: "سارا احمدی",
+                orderNumber: "654321",
+                paymentStatus: "در انتظار پرداخت",
+                address: "مشهد، بلوار معلم، کوچه 12، پلاک 10",
+                phone: "09137654321",
+                postalCode: "9876543210",
+                products: [
+                    { name: "دمنوش نعناع", quantity: 3 },
+                    { name: "چای سیاه", quantity: 2 },
+                ],
+            },
+        ];
+
+        // نمایش لیست سفارش‌ها
+        const orderList = document.getElementById("order-list");
+        orders.forEach((order, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${order.user}</td>
+                <td>${order.orderNumber}</td>
+                <td>
+                    <span class="badge ${order.paymentStatus === "پرداخت‌شده" ? "badge-paid" : "badge-unpaid"}">
+                        ${order.paymentStatus}
+                    </span>
+                </td>
+                <td>
+                    <span class="details-toggle" data-id="${order.id}">نمایش جزئیات</span>
+                </td>
+            `;
+            orderList.appendChild(row);
+
+            // جزئیات سفارش
+            const detailsRow = document.createElement("tr");
+            detailsRow.className = "details-row";
+            detailsRow.innerHTML = `
+                <td colspan="5">
+                    <strong>آدرس:</strong> ${order.address}<br>
+                    <strong>تلفن:</strong> ${order.phone}<br>
+                    <strong>کد پستی:</strong> ${order.postalCode}<br>
+                    <strong>محصولات:</strong>
+                    <ul>
+                        ${order.products
+                            .map(
+                                (product) =>
+                                    `<li>${product.name} - ${product.quantity} عدد</li>`
+                            )
+                            .join("")}
+                    </ul>
+                </td>
+            `;
+            orderList.appendChild(detailsRow);
+        });
+
+        // مدیریت نمایش جزئیات
+        document.querySelectorAll(".details-toggle").forEach((toggle) => {
+            toggle.addEventListener("click", () => {
+                const id = toggle.dataset.id;
+                const detailsRow = toggle.parentElement.parentElement.nextElementSibling;
+
+                if (detailsRow.classList.contains("details-row")) {
+                    detailsRow.style.display =
+                        detailsRow.style.display === "none" || detailsRow.style.display === ""
+                            ? "table-row"
+                            : "none";
+                }
+            });
+        });
+    </script>
+         <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
