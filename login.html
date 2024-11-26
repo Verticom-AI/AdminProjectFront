@@ -77,5 +77,33 @@
     <!-- اسکریپت‌ها -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script >
+    document.getElementById("login-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // فرض: عملیات ورود کاربر موفقیت‌آمیز است
+    const user = {
+        id: 1,
+        name: "کاربر تست",
+        email: "test@example.com",
+    };
+
+    // ذخیره اطلاعات کاربر در Local Storage
+    localStorage.setItem("user", JSON.stringify(user));
+
+    // بررسی بازگشت به صفحه قبلی
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectUrl = urlParams.get("redirect");
+
+    if (redirectUrl) {
+        window.location.href = redirectUrl;
+    } else {
+        window.location.href = "index.html"; // هدایت به صفحه اصلی
+    }
+});
+
+    </script>
+    
 </body>
 </html>

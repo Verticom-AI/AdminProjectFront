@@ -3,95 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فروشگاه وب سلامتی</title>
+    <title>مدیریت مشاوره‌ها | وب سلامتی</title>
     <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
-    <style>
-        .cart-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .cart-controls button {
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 50%;
-            border: 1px solid #ddd;
-        }
-
-        .cart-controls span {
-            font-size: 1rem;
-            font-weight: bold;
-        }
-
-        .offcanvas {
-            background-color: #f8f9fa;
-        }
-
-        .offcanvas-header {
-            border-bottom: 1px solid #ddd;
-        }
-
-        .product-quantity {
-            font-size: 0.9rem;
-            color: #6c757d;
-        }
-    </style>
+    <link rel="stylesheet" href="css/tmp.css">
 </head>
 <body>
-    <!-- هدر -->
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container">
-            <a href="#" class="navbar-brand">فروشگاه وب سلامتی</a>
+            <a class="navbar-brand" href="index.html">وب سلامتی</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a href="index.html" class="nav-link">خانه</a></li>
-                    <li class="nav-item"><a href="products.html" class="nav-link active">محصولات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">محصولات</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="admin.html">مدیریت</a></li>
                 </ul>
-                <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart" aria-controls="cart">
-                    مشاهده سبد خرید
-                </button>
             </div>
         </div>
     </header>
 
-    <!-- محصولات -->
-    <main class="container my-5">
-        <h1 class="text-center mb-4">محصولات</h1>
-        <div class="row" id="products">
-            <!-- محصولات با جاوااسکریپت اضافه می‌شوند -->
-        </div>
-    </main>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">مدیریت مشاوره‌ها</h1>
 
-    <!-- سبد خرید -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="cartLabel">
-        <div class="offcanvas-header">
-            <h5 id="cartLabel">سبد خرید</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <!-- لیست مشاوره‌ها -->
+        <div class="mb-4">
+            <h4>لیست مشاوره‌ها</h4>
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>نام کاربر</th>
+                        <th>موضوع</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody id="consultation-list">
+                    <!-- داده‌ها با جاوااسکریپت پر می‌شود -->
+                </tbody>
+            </table>
         </div>
-        <div class="offcanvas-body">
-            <ul id="cart-items" class="list-group mb-3">
-                <!-- آیتم‌های سبد خرید اضافه می‌شوند -->
-            </ul>
-            <div class="d-flex justify-content-between">
-                <span>جمع کل:</span>
-                <strong id="total-price">0 تومان</strong>
+
+        <!-- جزئیات مشاوره -->
+        <div id="consultation-details" class="p-4 border rounded bg-light d-none">
+            <h5>جزئیات مشاوره</h5>
+            <p><strong>نام کاربر:</strong> <span id="user-name"></span></p>
+            <p><strong>شرح حال:</strong> <span id="user-description"></span></p>
+            <div><strong>تصاویر:</strong> <div id="user-images" class="d-flex gap-2"></div></div>
+            <div><strong>فایل‌های صوتی:</strong> <div id="user-audios" class="d-flex gap-2 mt-2"></div></div>
+        </div>
+
+        <!-- فضای چت -->
+        <div id="chat-section" class="my-4 d-none">
+            <h4>گفت‌وگو با کاربر</h4>
+            <div class="chat-box mb-3" id="chat-box"></div>
+            <div class="d-flex gap-2">
+                <button id="record-button" class="btn btn-secondary">🎙️</button>
+                <input type="text" id="chat-input" class="form-control" placeholder="پیام خود را وارد کنید...">
+                <button id="send-message" class="btn btn-primary">ارسال</button>
             </div>
-            <button class="btn btn-primary w-100 mt-3">پرداخت</button>
+        </div>
+
+        <!-- ایجاد نسخه درمانی -->
+        <div id="prescription-section" class="d-none">
+            <h4>ایجاد نسخه درمانی</h4>
+            <input type="text" id="product-search" class="form-control mb-3" placeholder="جستجوی محصول...">
+            <div id="product-list" class="product-list"></div>
+            <table class="table table-bordered mt-3">
+                <thead class="table-light">
+                    <tr>
+                        <th>نام محصول</th>
+                        <th>تعداد</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody id="prescription-table"></tbody>
+            </table>
+            <button id="finalize-prescription" class="btn btn-success w-100 mt-3">ارسال نسخه به کاربر</button>
         </div>
     </div>
 
+    <script src="js/tmp.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/products.js"></script>
+
 </body>
 </html>

@@ -99,3 +99,37 @@
         });
     });
     
+    document.getElementById("special-consultation-button").addEventListener("click", () => {
+        // فرض: چک کردن وضعیت ورود کاربر
+        const isLoggedIn = checkUserLoggedIn(); // تابعی برای بررسی ورود کاربر
+    
+        if (isLoggedIn) {
+            // کاربر وارد شده، انتقال به صفحه مشاوره تخصصی
+            const consultationType = "فیبروم"; // نوع مشاوره (می‌توانید داینامیک کنید)
+            redirectToConsultationPage(consultationType);
+        } else {
+            // کاربر وارد نشده، هدایت به صفحه ورود/ثبت‌نام
+            redirectToLoginPage();
+        }
+    });
+    
+    // بررسی وضعیت ورود کاربر
+    function checkUserLoggedIn() {
+        // بررسی ساده: فرض کنید اطلاعات کاربر در Local Storage ذخیره شده است
+        const userData = localStorage.getItem("user");
+        return !!userData; // اگر کاربر وجود دارد، true برمی‌گرداند
+    }
+    
+    // هدایت به صفحه مشاوره تخصصی
+    function redirectToConsultationPage(consultationType) {
+        const targetUrl = `special-consultation.html?type=${encodeURIComponent(consultationType)}`;
+        window.location.href = targetUrl;
+    }
+    
+    // هدایت به صفحه ورود/ثبت‌نام
+    function redirectToLoginPage() {
+        const currentUrl = window.location.href;
+        const loginUrl = `login.html?redirect=${encodeURIComponent(currentUrl)}`;
+        window.location.href = loginUrl;
+    }
+    
