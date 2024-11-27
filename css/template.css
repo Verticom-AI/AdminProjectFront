@@ -292,12 +292,12 @@ body.dark-mode .profile-menu li:hover {
 /* دکمه‌های شناور  just menu btn*/
 /* دکمه‌های شناور  just menu btn*/
 .floating-btn {
-  background-color: #1cdfb1; /* رنگ دکمه شناور در حالت دارک */
+  background-color: #909595; /* رنگ دکمه شناور در حالت دارک */
   color: #fff;
 }
 
 .floating-btn:hover {
-  background-color: #df7cec; /* رنگ تغییر یافته برای هاور */
+  background-color: #e6e6e6; /* رنگ تغییر یافته برای هاور */
   transform: scale(1.2);
 }
 
@@ -305,7 +305,7 @@ body.dark-mode .profile-menu li:hover {
 /* تغییر رنگ دکمه پروفایل و سبد خرید ppppppppppppppdo */
 /* تغییر رنگ دکمه پروفایل و سبد خرید ppppppppppppppdo */
 #profile-btn, #cart-btn {
-  background-color: #a3e5b3;
+  background-color: #e8eae9;
 }
 #menu-btn:hover{
 
@@ -314,7 +314,7 @@ body.dark-mode .profile-menu li:hover {
 }
 
 #profile-btn:hover, #cart-btn:hover {
-  background-color: #f610a9;
+  background-color: #ffffff;
   transform: scale(1.3);
 }
 
