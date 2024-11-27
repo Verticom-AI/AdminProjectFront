@@ -35,35 +35,14 @@ body.dark-mode .offcanvas {
   color: #ddd;  /* رنگ متن روشن اسلاید بار */
 }
 
-body.dark-mode .offcanvas .offcanvas-header {
-  background-color: #444;  /* هدر تیره اسلاید بار */
-}
 
-body.dark-mode .profile-menu li {
-  color: #ddd;  /* رنگ متن منو روشن */
-}
-
-body.dark-mode .profile-menu li:hover {
-  background-color: #555;  /* رنگ پس‌زمینه منو در هاور */
-}
 /* دکمه‌های شناور */
 .floating-btn {
   background-color: #444; /* رنگ دکمه شناور در حالت دارک */
   color: #fff;
 }
 
-.floating-btn:hover {
-  background-color: #555; /* رنگ تغییر یافته برای هاور */
-}
 
-/* تغییر رنگ دکمه پروفایل و سبد خرید */
-#profile-btn, #cart-btn {
-  background-color: #444;
-}
-
-#profile-btn:hover, #cart-btn:hover {
-  background-color: #555;
-}
 
 /* استایل مخصوص برای تغییر تم */
 .theme-toggle {
@@ -78,26 +57,23 @@ body.dark-mode .theme-toggle {
         /* استایل دکمه‌های شناور */
         .floating-btn {
           position: fixed;
-          bottom: 20px;
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
+          bottom: 5px;
+          width: 60;
+          height:60;
+          border-radius: 70%;
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 24px;
-          color: #fff;
+          font-size: 60px;
+          color: #000000;
           background-color: #808080; /* رنگ توسی */
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px rgba(1, 0.9, 0.9, 0.99);
           cursor: pointer;
+        
           z-index: 1050;
-          transition: transform 0.3s ease, background-color 0.3s ease;
+          transition: transform 000000s ease, background-color 1000s ease;
       }
 
-      .floating-btn:hover {
-          transform: scale(1.1);
-          background-color: #ccc; /* رنگ تغییر یافته به خاکی روشن */
-      }
 
       /* دکمه پروفایل در سمت چپ */
       #profile-btn {
@@ -109,13 +85,22 @@ body.dark-mode .theme-toggle {
           left: 20px;
       }
 
-      /* دکمه باز کردن منو در پایین وسط دوتا دکمه */
+      /* mnu دکمه باز کردن منو در پایین وسط دوتا دکمه */
       #menu-btn {
-          bottom: 30px; /* بالا بردن دکمه منو از دکمه‌های دیگر */
-          left: 50%;
-          transform: translateX(-50%);
+          bottom: 20px; /* بالا بردن دکمه منو از دکمه‌های دیگر */
+          left: 43%;
           display: none; /* نمایش این دکمه فقط در صفحات کوچک */
-      }
+          transition: transform 0 ease, background-color 1s ease;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+
+
+        }
+        #menu-btn:hover {
+          background-color: #808080; /* رنگ توسی */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.99);
+
+
+        }
 
       /* استایل پنل‌های offcanvas */
       .offcanvas {
@@ -209,12 +194,6 @@ body.dark-mode .theme-toggle {
           background-color: #f0f0f0;
       }
 
-      /* تغییر تم (Dark/Light) */
-      .theme-toggle {
-          font-size: 22px;
-          margin-top: 10px;
-          cursor: pointer;
-      }
 
       /* استایل برای نمایش دکمه منو در صفحات کوچک */
       @media (max-width: 767px) {
@@ -263,69 +242,6 @@ body {
   background-color: #f0f0f0;  /* رنگ پس‌زمینه منو روی هاور */
 }
 
-/* تم دارک */
-body.dark-mode {
-  background-color: #1a1a1a;  /* پس‌زمینه تیره */
-  color: #ddd;  /* رنگ متن روشن */
-}
-
-/* استایل‌های اسلاید بار در تم دارک */
-body.dark-mode .offcanvas {
-  background-color: #333;  /* پس‌زمینه تیره اسلاید بار */
-  color: #ddd;  /* رنگ متن روشن اسلاید بار */
-}
-
-body.dark-mode .offcanvas .offcanvas-header {
-  background-color: #444;  /* هدر تیره اسلاید بار */
-}
-
-body.dark-mode .profile-menu li {
-  color: #ddd;  /* رنگ متن منو روشن */
-}
-
-body.dark-mode .profile-menu li:hover {
-  background-color: #bb2121;  /* رنگ پس‌زمینه منو در هاور */
-}
-
-/* دکمه‌های شناور  just menu btn*/
-/* دکمه‌های شناور  just menu btn*/
-/* دکمه‌های شناور  just menu btn*/
-/* دکمه‌های شناور  just menu btn*/
-.floating-btn {
-  background-color: #909595; /* رنگ دکمه شناور در حالت دارک */
-  color: #fff;
-}
-
-.floating-btn:hover {
-  background-color: #e6e6e6; /* رنگ تغییر یافته برای هاور */
-  transform: scale(1.2);
-}
-
-/* تغییر رنگ دکمه پروفایل و سبد خرید ppppppppppppppdo */
-/* تغییر رنگ دکمه پروفایل و سبد خرید ppppppppppppppdo */
-/* تغییر رنگ دکمه پروفایل و سبد خرید ppppppppppppppdo */
-#profile-btn, #cart-btn {
-  background-color: #e8eae9;
-}
-#menu-btn:hover{
-
-  transform: scale(1.3);
-
-}
-
-#profile-btn:hover, #cart-btn:hover {
-  background-color: #ffffff;
-  transform: scale(1.3);
-}
-
-/* استایل مخصوص برای تغییر تم */
-.theme-toggle {
-  color: #bbb;  /* رنگ آیکن ماه و خورشید */
-}
-
-body.dark-mode .theme-toggle {
-  color: #ddd;  /* رنگ روشن برای آیکن در حالت دارک */
-}
 
 /* استایل‌های خاص برای اینکه اسلاید بار و سبد خرید در هر دو حالت لایت و دارک مشابه بمانند */
 #cart .offcanvas-body, #profile .offcanvas-body {
@@ -347,30 +263,4 @@ body.dark-mode .theme-toggle {
 .profile-menu li {
   padding: 10px;
   border-bottom: 1px solid #ddd;
-}
-
-/* تغییر رنگ دکمه‌ها هنگام فعال بودن تم دارک */
-body.dark-mode #cart-items li,
-body.dark-mode .profile-menu li {
-  background-color: #444; /* پس‌زمینه تیره برای آیتم‌های لیست */
-  color: #ddd;  /* رنگ متن روشن */
-}
-
-body.dark-mode #cart-items li:hover,
-body.dark-mode .profile-menu li:hover {
-  background-color: #555; /* رنگ پس‌زمینه روشن‌تر در هاور */
-}
-
-/* برای هدر */
-body.dark-mode .navbar {
-  background-color: #222; /* پس‌زمینه تیره نوار بالا */
-  color: #fff; /* رنگ متن روشن */
-}
-
-body.dark-mode .navbar a {
-  color: #fff; /* رنگ لینک‌ها در حالت دارک */
-}
-
-body.dark-mode .navbar a:hover {
-  color: #007bff;  /* رنگ لینک‌ها هنگام هاور */
 }

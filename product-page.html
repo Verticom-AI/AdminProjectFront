@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه وب سلامتی</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <!-- اضافه کردن Font Awesome از طریق CDN -->
+     <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- اضافه کردن Iconify از طریق CDN -->
+
+    <link rel="stylesheet" href="css/template.css">
+    <style>
+        /* استایل برای دکمه‌های شناور */
+.floating-btn .material-icons {
+    font-size: 24px;  /* اندازه آیکن */
+    color: #fff;      /* رنگ آیکن */
+    padding: 10px;    /* فاصله داخلی */
+}
+         .cart-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .cart-controls button {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+   
+
+        .cart-controls span {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .offcanvas {
+            background-color: #f8f9fa;
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-quantity {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        /* استایل نوار شیشه‌ای */
+.glass-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;  /* ارتفاع نوار */
+    background: rgba(255, 255, 255, 0.2);  /* رنگ شفاف پس‌زمینه */
+    backdrop-filter: blur(10px);  /* ایجاد افکت محو کردن */
+    border-top: 1px solid rgba(255, 255, 255, 0.3);  /* حاشیه بالا */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);  /* سایه ملایم */
+    z-index: 999;  /* قرار دادن نوار در زیر دکمه‌ها */
+}
+    </style>
+    
+</head>
+<body>
+
+    <!-- هدر -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">وب سلامتی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html">محصولات</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="login.html">ورود</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.html">ثبت‌نام</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="central-const.html">مشاوره</a></li>
+    
+                </ul>
+
+                <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart" aria-controls="cart">
+                    مشاهده سبد خرید
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- محصولات -->
+    <main class="container my-5">
+        <h1 class="text-center mb-4">محصولات</h1>
+        <div class="row" id="products">
+            <!-- محصولات با جاوااسکریپت اضافه می‌شوند -->
+        </div>
+    </main>
+
+    <!-- سبد خرید -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="cartLabel">
+        <div class="offcanvas-header">
+            <h5 id="cartLabel">سبد خرید</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul id="cart-items" class="list-group mb-3">
+                <!-- آیتم‌های سبد خرید اضافه می‌شوند -->
+            </ul>
+            <div class="d-flex justify-content-between">
+                <span>جمع کل:</span>
+                <strong id="total-price">0 تومان</strong>
+            </div>
+            <button class="btn btn-success w-100 mt-3" >پرداخت</button>
+        </div>
+    </div>
+
+    
+<!-- دکمه شناور برای باز کردن منو (فقط در صفحه‌های کوچک) -->
+<div id="menu-btn" class="floating-btn">
+    <span>&#9776;</span> <!-- آیکن همبرگر برای منو -->
+</div>
+
+<div id="cart-btn" class="floating-btn">
+    <span>&#128722;</span> <!-- آیکن سبد خرید -->
+</div>
+
+<!-- دکمه‌های شناور -->
+<div id="profile-btn" class="floating-btn">
+    <span>&#128100;</span> <!-- آیکن پروفایل -->
+</div>
+
+
+
+<!-- نوار شیشه‌ای در پایین صفحه -->
+<div class="glass-bar"></div>
+
+
+    <!-- پنل پروفایل (offcanvas سمت راست) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="profile" aria-labelledby="profileLabel">
+        <div class="offcanvas-header">
+            <h5 id="profileLabel">پروفایل کاربری</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="profile-header">
+                <img src="images/ico/prof2.jpg" alt="Profile Picture">
+                <h5>نام کاربر </h5>
+                <p>nazaninmahlagha.e@example.com</p>
+                <button class="theme-toggle" id="toggle-theme">🌙</button> <!-- آیکن تغییر تم -->
+            </div>
+            <ul class="profile-menu">
+                <li>خریدهای من</li>
+                <li>مشاوره‌های من</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!-- اسکریپت‌های Bootstrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/tmpbtn.js"></script>
+
+</body>
+</html>
