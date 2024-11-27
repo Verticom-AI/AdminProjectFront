@@ -6,180 +6,222 @@
     <title>فروشگاه وب سلامتی</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
     <style>
-        /* استایل دکمه سیار */
+        /* استایل دکمه‌های شناور */
         .floating-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background-color: #808080;
-            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 24px;
+            color: #fff;
+            background-color: #808080; /* رنگ توسی */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            transition: all 0.3s ease;
             z-index: 1050;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .floating-btn:hover {
             transform: scale(1.1);
-            background-color: #ccc;
+            background-color: #ccc; /* رنگ تغییر یافته به خاکی روشن */
         }
 
-        /* دکمه‌های بیرون آمده از دکمه سیار */
-        .panel {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 300px;
-            height: 200px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transform: translateX(100%);
-            transition: transform 0.5s ease;
-            padding: 20px;
-            display: none;
+        /* دکمه پروفایل در سمت چپ */
+        #profile-btn {
+            right: 20px;
         }
 
-        .panel.show {
-            transform: translateX(0);
-            display: block;
+        /* دکمه سبد خرید در سمت راست */
+        #cart-btn {
+            left: 20px;
         }
 
-        .panel h5 {
-            margin-bottom: 20px;
+        /* دکمه باز کردن منو در پایین وسط دوتا دکمه */
+        #menu-btn {
+            bottom: 30px; /* بالا بردن دکمه منو از دکمه‌های دیگر */
+            left: 50%;
+            transform: translateX(-50%);
+            display: none; /* نمایش این دکمه فقط در صفحات کوچک */
         }
 
-        .panel ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .panel ul li {
-            margin-bottom: 10px;
-        }
-
-        /* برای قابلیت جابه‌جایی دکمه سیار */
-        .draggable {
-            cursor: move;
-        }
-
-        /* استایل برای پنل‌های پروفایل و سبد خرید */
+        /* استایل پنل‌های offcanvas */
         .offcanvas {
-            transition: transform 0.6s ease-in-out;
-            visibility: hidden;
-            max-width: 400px;
+            transition: transform 0.6s ease-in-out; /* زمان انیمیشن باز و بسته شدن */
+            visibility: hidden; /* مخفی کردن پنل‌ها به صورت پیش‌فرض */
+            max-width: 400px; /* افزایش اندازه پنل‌ها */
         }
 
         .offcanvas.show {
             visibility: visible;
         }
 
+        .offcanvas-start, .offcanvas-end {
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .offcanvas-start.hide, .offcanvas-end.hide {
+            transform: translateX(-100%);
+        }
+
+        /* استایل نوار ناوبری */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        /* استایل‌های پنل‌ها */
+        .offcanvas-profile {
+            max-width: 400px;
+        }
+
+        .offcanvas-cart {
+            max-width: 400px;
+        }
+
+        /* استایل برای نمایش دکمه منو در صفحات کوچک */
         @media (max-width: 767px) {
-            .floating-btn {
-                bottom: 20px;
-                right: 20px;
+            #menu-btn {
+                display: block;
             }
         }
+
     </style>
 </head>
 <body>
 
-    <!-- دکمه سیار -->
-    <div id="floating-btn" class="floating-btn draggable">
-        <span>&#9776;</span> <!-- آیکن همبرگر -->
+    <!-- نوار ناوبری -->
+    <header class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">وب سلامتی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">محصولات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">ورود</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">ثبت‌نام</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- دکمه شناور برای باز کردن منو (فقط در صفحه‌های کوچک) -->
+    <div id="menu-btn" class="floating-btn">
+        <span>&#9776;</span> <!-- آیکن همبرگر برای منو -->
     </div>
 
-    <!-- پنل پروفایل -->
-    <div id="profile-panel" class="panel">
-        <h5>پروفایل کاربری</h5>
-        <ul>
-            <li>نام کاربری: John Doe</li>
-            <li>ایمیل: johndoe@example.com</li>
-            <li>عضو از: 2022</li>
-        </ul>
+    <div id="cart-btn" class="floating-btn">
+        <span>&#128722;</span> <!-- آیکن سبد خرید -->
     </div>
 
-    <!-- پنل سبد خرید -->
-    <div id="cart-panel" class="panel">
-        <h5>سبد خرید</h5>
-        <ul>
-            <li>محصول 1</li>
-            <li>محصول 2</li>
-            <li>محصول 3</li>
-        </ul>
-        <div class="d-flex justify-content-between">
-            <span>جمع کل:</span>
-            <strong id="total-price">500,000 تومان</strong>
+    <!-- دکمه‌های شناور -->
+    <div id="profile-btn" class="floating-btn">
+        <span>&#128100;</span> <!-- آیکن پروفایل -->
+    </div>
+
+    <!-- پنل سبد خرید (offcanvas سمت چپ) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="cartLabel">
+        <div class="offcanvas-header">
+            <h5 id="cartLabel">سبد خرید</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul id="cart-items" class="list-group mb-3">
+                <li class="list-group-item">محصول 1</li>
+                <li class="list-group-item">محصول 2</li>
+                <li class="list-group-item">محصول 3</li>
+            </ul>
+            <div class="d-flex justify-content-between">
+                <span>جمع کل:</span>
+                <strong id="total-price">500,000 تومان</strong>
+            </div>
+            <button class="btn btn-success w-100 mt-3">پرداخت</button>
         </div>
     </div>
 
-    <!-- پنل منو -->
-    <div id="menu-panel" class="panel">
-        <h5>منو</h5>
-        <ul>
-            <li><a href="#">خانه</a></li>
-            <li><a href="#">محصولات</a></li>
-            <li><a href="#">تماس با ما</a></li>
-        </ul>
+    <!-- پنل پروفایل (offcanvas سمت راست) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="profile" aria-labelledby="profileLabel">
+        <div class="offcanvas-header">
+            <h5 id="profileLabel">پروفایل کاربری</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-group">
+                <li class="list-group-item">نام کاربری: John Doe</li>
+                <li class="list-group-item">ایمیل: johndoe@example.com</li>
+                <li class="list-group-item">عضو از: 2022</li>
+            </ul>
+        </div>
     </div>
 
     <!-- اسکریپت‌های Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // گرفتن عناصر دکمه و پنل‌ها
-        const floatingBtn = document.getElementById('floating-btn');
-        const profilePanel = document.getElementById('profile-panel');
-        const cartPanel = document.getElementById('cart-panel');
-        const menuPanel = document.getElementById('menu-panel');
+        // گرفتن پنل‌ها و دکمه‌ها
+        const cartBtn = document.getElementById('cart-btn');
+        const profileBtn = document.getElementById('profile-btn');
+        const profilePanel = new bootstrap.Offcanvas(document.getElementById('profile'));
+        const cartPanel = new bootstrap.Offcanvas(document.getElementById('cart'));
+        const menuBtn = document.getElementById('menu-btn');
+        const navbarCollapse = document.getElementById('navbarNav');
 
-        let isOpen = false;
+        // متغیر برای مشخص کردن پنل باز شده
+        let currentPanel = null;
 
-        // فعال‌سازی نمایش/مخفی‌سازی پنل‌ها
-        floatingBtn.addEventListener('click', () => {
-            if (isOpen) {
-                profilePanel.classList.remove('show');
-                cartPanel.classList.remove('show');
-                menuPanel.classList.remove('show');
+        // برای باز کردن پنل‌ها با دکمه‌ها
+        cartBtn.addEventListener('mouseenter', () => {
+            if (currentPanel === 'cart') {
+                cartPanel.hide();
+                currentPanel = null;
             } else {
-                profilePanel.classList.add('show');
-                cartPanel.classList.add('show');
-                menuPanel.classList.add('show');
+                profilePanel.hide();
+                cartPanel.show();
+                currentPanel = 'cart';
             }
-            isOpen = !isOpen;
         });
 
-        // قابلیت جابه‌جایی دکمه سیار
-        floatingBtn.addEventListener('mousedown', function(e) {
-            let shiftX = e.clientX - floatingBtn.getBoundingClientRect().left;
-            let shiftY = e.clientY - floatingBtn.getBoundingClientRect().top;
-
-            function moveAt(pageX, pageY) {
-                floatingBtn.style.left = pageX - shiftX + 'px';
-                floatingBtn.style.top = pageY - shiftY + 'px';
+        profileBtn.addEventListener('mouseenter', () => {
+            if (currentPanel === 'profile') {
+                profilePanel.hide();
+                currentPanel = null;
+            } else {
+                cartPanel.hide();
+                profilePanel.show();
+                currentPanel = 'profile';
             }
-
-            function onMouseMove(e) {
-                moveAt(e.pageX, e.pageY);
-            }
-
-            document.addEventListener('mousemove', onMouseMove);
-
-            floatingBtn.onmouseup = function() {
-                document.removeEventListener('mousemove', onMouseMove);
-                floatingBtn.onmouseup = null;
-            };
         });
 
-        floatingBtn.ondragstart = function() {
-            return false;
-        };
+        // برای باز کردن منو در صفحه‌های کوچک
+        menuBtn.addEventListener('mouseenter', () => {
+            navbarCollapse.classList.toggle('show');
+        });
+
+        // باز نگه داشتن پنل‌ها هنگام حرکت موس روی آن‌ها
+        const panels = [profilePanel, cartPanel];
+        panels.forEach(panel => {
+            const offcanvasElement = panel._element;
+
+            offcanvasElement.addEventListener('mouseenter', () => {
+                clearTimeout(panel._timeout); // لغو تایمر بسته شدن
+            });
+
+            offcanvasElement.addEventListener('mouseleave', () => {
+                panel._timeout = setTimeout(() => {
+                    panel.hide(); // بسته شدن پنل بعد از تأخیر
+                }, 800); // 800 میلی‌ثانیه تأخیر برای بسته شدن
+            });
+        });
     </script>
 
 </body>
