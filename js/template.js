@@ -1,23 +1,4 @@
-// تغییر تم دارک/لایت
-document.getElementById('toggle-theme').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');  // تغییر وضعیت تم
-    const icon = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';  // تغییر آیکن
-    document.getElementById('toggle-theme').textContent = icon;
 
-    // تغییر تم برای اسلاید بارها و دکمه‌ها
-    const cartPanel = document.getElementById('cart');
-    const profilePanel = document.getElementById('profile');
-    if (document.body.classList.contains('dark-mode')) {
-        cartPanel.classList.add('dark-mode');
-        profilePanel.classList.add('dark-mode');
-        navbarCollapse.classList.add('dark-mod')
-    } else {
-        cartPanel.classList.remove('dark-mode');
-        profilePanel.classList.remove('dark-mode');
-        navbarCollapse.classList.remove('dark-mode');
-    }
-});
-    
 
         // گرفتن پنل‌ها و دکمه‌ها
         const cartBtn = document.getElementById('cart-btn');
@@ -80,6 +61,30 @@ document.getElementById('toggle-theme').addEventListener('click', function() {
             offcanvasElement.addEventListener('mouseleave', () => {
                 panel._timeout = setTimeout(() => {
                     panel.hide(); // بسته شدن پنل بعد از تأخیر
-                }, 800); // 800 میلی‌ثانیه تأخیر برای بسته شدن
+                }, 400); // 400 میلی‌ثانیه تأخیر برای بسته شدن
             });
         });
+        /*
+// تغییر تم دارک و لایت
+const themeToggle = document.getElementById('theme-toggle');
+
+// بررسی وضعیت تم دارک
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+} else {
+    document.body.classList.remove('dark-mode');
+}
+
+// تغییر تم
+themeToggle.addEventListener('click', () => {
+    // تعویض کلاس dark-mode
+    document.body.classList.toggle('dark-mode');
+
+    // ذخیره انتخاب در localStorage
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
+*/

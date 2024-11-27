@@ -223,3 +223,154 @@ body.dark-mode .theme-toggle {
           }
       }
 
+/* استایل‌های پایه برای تم لایت */
+body {
+  background-color: #f7f7f7;  /* پس‌زمینه روشن */
+  color: #333;  /* رنگ متن تیره */
+  transition: all 0.3s ease;  /* انیمیشن انتقال به حالت جدید */
+}
+
+/* نوار بالایی همیشه لایت باقی می‌ماند */
+.navbar {
+  background-color: #fff;  /* پس‌زمینه سفید */
+  color: #333;  /* رنگ متن تیره */
+}
+
+.navbar a {
+  color: #333;  /* لینک‌ها در حالت لایت */
+}
+
+.navbar a:hover {
+  color: #007bff;  /* رنگ لینک‌ها هنگام هاور */
+}
+
+/* استایل‌های اسلاید بار در تم لایت */
+.offcanvas {
+  background-color: #fff;  /* پس‌زمینه سفید */
+  color: #333;  /* رنگ متن تیره */
+}
+
+.offcanvas .offcanvas-header {
+  background-color: #f0f0f0;  /* پس‌زمینه هدر سفید */
+}
+
+/* استایل منوهای پروفایل */
+.profile-menu li {
+  color: #333;  /* رنگ متن منو تیره */
+}
+
+.profile-menu li:hover {
+  background-color: #f0f0f0;  /* رنگ پس‌زمینه منو روی هاور */
+}
+
+/* تم دارک */
+body.dark-mode {
+  background-color: #1a1a1a;  /* پس‌زمینه تیره */
+  color: #ddd;  /* رنگ متن روشن */
+}
+
+/* استایل‌های اسلاید بار در تم دارک */
+body.dark-mode .offcanvas {
+  background-color: #333;  /* پس‌زمینه تیره اسلاید بار */
+  color: #ddd;  /* رنگ متن روشن اسلاید بار */
+}
+
+body.dark-mode .offcanvas .offcanvas-header {
+  background-color: #444;  /* هدر تیره اسلاید بار */
+}
+
+body.dark-mode .profile-menu li {
+  color: #ddd;  /* رنگ متن منو روشن */
+}
+
+body.dark-mode .profile-menu li:hover {
+  background-color: #bb2121;  /* رنگ پس‌زمینه منو در هاور */
+}
+
+/* دکمه‌های شناور  just menu btn*/
+/* دکمه‌های شناور  just menu btn*/
+/* دکمه‌های شناور  just menu btn*/
+/* دکمه‌های شناور  just menu btn*/
+.floating-btn {
+  background-color: #1cdfb1; /* رنگ دکمه شناور در حالت دارک */
+  color: #fff;
+}
+
+.floating-btn:hover {
+  background-color: #df7cec; /* رنگ تغییر یافته برای هاور */
+  transform: scale(1.2);
+}
+
+/* تغییر رنگ دکمه پروفایل و سبد خرید ppppppppppppppdo */
+/* تغییر رنگ دکمه پروفایل و سبد خرید ppppppppppppppdo */
+/* تغییر رنگ دکمه پروفایل و سبد خرید ppppppppppppppdo */
+#profile-btn, #cart-btn {
+  background-color: #a3e5b3;
+}
+#menu-btn:hover{
+
+  transform: scale(1.3);
+
+}
+
+#profile-btn:hover, #cart-btn:hover {
+  background-color: #f610a9;
+  transform: scale(1.3);
+}
+
+/* استایل مخصوص برای تغییر تم */
+.theme-toggle {
+  color: #bbb;  /* رنگ آیکن ماه و خورشید */
+}
+
+body.dark-mode .theme-toggle {
+  color: #ddd;  /* رنگ روشن برای آیکن در حالت دارک */
+}
+
+/* استایل‌های خاص برای اینکه اسلاید بار و سبد خرید در هر دو حالت لایت و دارک مشابه بمانند */
+#cart .offcanvas-body, #profile .offcanvas-body {
+  background-color: #fff; /* پس‌زمینه سفید برای هر دو حالت */
+  color: #333; /* رنگ متن تیره */
+}
+
+/* استایل برای دکمه‌های پروفایل و خرید */
+#cart-items, .profile-menu {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#cart-items li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-menu li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* تغییر رنگ دکمه‌ها هنگام فعال بودن تم دارک */
+body.dark-mode #cart-items li,
+body.dark-mode .profile-menu li {
+  background-color: #444; /* پس‌زمینه تیره برای آیتم‌های لیست */
+  color: #ddd;  /* رنگ متن روشن */
+}
+
+body.dark-mode #cart-items li:hover,
+body.dark-mode .profile-menu li:hover {
+  background-color: #555; /* رنگ پس‌زمینه روشن‌تر در هاور */
+}
+
+/* برای هدر */
+body.dark-mode .navbar {
+  background-color: #222; /* پس‌زمینه تیره نوار بالا */
+  color: #fff; /* رنگ متن روشن */
+}
+
+body.dark-mode .navbar a {
+  color: #fff; /* رنگ لینک‌ها در حالت دارک */
+}
+
+body.dark-mode .navbar a:hover {
+  color: #007bff;  /* رنگ لینک‌ها هنگام هاور */
+}
