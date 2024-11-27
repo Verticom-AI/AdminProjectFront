@@ -17,16 +17,17 @@
             justify-content: center;
             align-items: center;
             font-size: 24px;
-            color: white;
-            background-color: #007bff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            background-color: #74c2a4; /* رنگ توسی */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             z-index: 1050;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
-        
+
         .floating-btn:hover {
             transform: scale(1.1);
+            background-color: #ccc; /* رنگ تغییر یافته به خاکی روشن */
         }
 
         /* دکمه پروفایل در سمت راست */
@@ -34,9 +35,16 @@
             right: 20px;
         }
 
-        /* دکمه سبد خرید در سمت راست */
+        /* دکمه سبد خرید در سمت چپ */
         #cart-btn {
-            right: 90px;
+            left: 20px;
+        }
+
+        /* دکمه باز کردن منو */
+        #menu-btn {
+            top: 20px;
+            right: 20px;
+            display: none; /* نمایش این دکمه فقط در صفحات کوچک */
         }
 
         /* استایل پنل‌های offcanvas */
@@ -71,6 +79,14 @@
         .offcanvas-cart {
             max-width: 350px;
         }
+
+        /* استایل برای نمایش دکمه منو در صفحات کوچک */
+        @media (max-width: 767px) {
+            #menu-btn {
+                display: block;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -79,6 +95,9 @@
     <header class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">وب سلامتی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
@@ -98,6 +117,11 @@
 
     <div id="profile-btn" class="floating-btn">
         <span>&#128100;</span> <!-- آیکن پروفایل -->
+    </div>
+
+    <!-- دکمه شناور برای باز کردن منو (فقط در صفحه‌های کوچک) -->
+    <div id="menu-btn" class="floating-btn">
+        <span>&#9776;</span> <!-- آیکن همبرگر برای منو -->
     </div>
 
     <!-- پنل سبد خرید (offcanvas سمت چپ) -->
@@ -143,6 +167,8 @@
         const profileBtn = document.getElementById('profile-btn');
         const profilePanel = new bootstrap.Offcanvas(document.getElementById('profile'));
         const cartPanel = new bootstrap.Offcanvas(document.getElementById('cart'));
+        const menuBtn = document.getElementById('menu-btn');
+        const navbarCollapse = document.getElementById('navbarNav');
 
         // متغیر برای مشخص کردن پنل باز شده
         let currentPanel = null;
@@ -168,6 +194,11 @@
                 profilePanel.show();
                 currentPanel = 'profile';
             }
+        });
+
+        // برای باز کردن منو در صفحه‌های کوچک
+        menuBtn.addEventListener('click', () => {
+            navbarCollapse.classList.toggle('show');
         });
 
         // باز نگه داشتن پنل‌ها هنگام حرکت موس روی آن‌ها
