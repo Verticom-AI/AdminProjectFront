@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه وب سلامتی</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="css/template.css">
+    <style>
+    </style>
+</head>
+<body>
+
+    <!-- نوار ناوبری -->
+    <header class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">وب سلامتی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">محصولات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">ورود</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">ثبت‌نام</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- دکمه شناور برای باز کردن منو (فقط در صفحه‌های کوچک) -->
+    <div id="menu-btn" class="floating-btn">
+        <span>&#9776;</span> <!-- آیکن همبرگر برای منو -->
+    </div>
+
+    <div id="cart-btn" class="floating-btn">
+        <span>&#128722;</span> <!-- آیکن سبد خرید -->
+    </div>
+
+    <!-- دکمه‌های شناور -->
+    <div id="profile-btn" class="floating-btn">
+        <span>&#128100;</span> <!-- آیکن پروفایل -->
+    </div>
+
+    <!-- پنل سبد خرید (offcanvas سمت چپ) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="cartLabel">
+        <div class="offcanvas-header">
+            <h5 id="cartLabel">سبد خرید</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul id="cart-items" class="list-group mb-3">
+                <li class="list-group-item">محصول 1</li>
+                <li class="list-group-item">محصول 2</li>
+                <li class="list-group-item">محصول 3</li>
+            </ul>
+            <div class="d-flex justify-content-between">
+                <span>جمع کل:</span>
+                <strong id="total-price">500,000 تومان</strong>
+            </div>
+            <button class="btn btn-success w-100 mt-3">پرداخت</button>
+        </div>
+    </div>
+
+    <!-- پنل پروفایل (offcanvas سمت راست) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="profile" aria-labelledby="profileLabel">
+        <div class="offcanvas-header">
+            <h5 id="profileLabel">پروفایل کاربری</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="profile-header">
+                <img src="https://via.placeholder.com/80" alt="Profile Picture">
+                <h5>جان دو</h5>
+                <p>john.doe@example.com</p>
+                <button class="theme-toggle" id="toggle-theme">🌙</button> <!-- آیکن تغییر تم -->
+            </div>
+            <ul class="profile-menu">
+                <li>خریدهای من</li>
+                <li>مشاوره‌های من</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- اسکریپت‌های Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/template.js"></script>
+
+</body>
+</html>
