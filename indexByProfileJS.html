@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وب سلامتی </title>
+    <!-- بوت‌استرپ -->
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <!-- استایل‌های سفارشی -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cartprofstyle.css">
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <!-- هدر -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- آیکون‌ها -->
+            <div class="d-flex align-items-center icons-container">
+                <div id="cart-icon" class="cart-icon me-3">
+                    <img src="images/ico/th.jpg" alt="سبد خرید" style="width: 24px; height: 24px;">
+                </div>
+                <div id="profile-icon" class="profile-icon">
+                    <img src="images/ico/prof2.jpg" alt="پروفایل" style="width: 24px; height: 24px;">
+                </div>
+            </div>
+    
+            <!-- لوگوی وب سلامتی -->
+            <a class="navbar-brand mx-auto text-center" href="index.html">وب سلامتی</a>
+    
+            <!-- منو -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">محصولات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">ورود</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">ثبت‌نام</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+                    <li class="nav-item"><a class="nav-link" href="central-const.html">مشاوره</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    
+    
+       
+    
+<!-- منوی بازشو پروفایل -->
+<div id="profile-dropdown" class="profile-dropdown">
+    <div class="profile-header">
+        <img src="images/ico/prof1.jpg" alt="پروفایل کاربر">
+        <h6>کاظم کیبیری</h6>
+        <p>0902*****90</p>
+    </div>
+    <ul>
+        <li>تنظیمات حساب کاربری</li>
+        <li>سفارشات من</li>
+        <li>کامنت‌های من</li>
+    </ul>
+    <a href="logout.html" class="logout-btn">خروج از حساب کاربری</a>
+</div>
+
+<!-- سبد خرید بازشو -->
+<div id="cart-dropdown" tabindex="-1" class="cart-dropdown">
+
+    <button class="btn btn-apple w-100 mt-2 " >محصولات</button>
+
+    
+    <div class="offcanvas-header">
+        <h5 id="cartLabel">سبد خرید</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul id="cart-items" class="list-group mb-3">
+            <!-- آیتم‌های سبد خرید اضافه می‌شوند -->
+        </ul>
+        <div class="d-flex justify-content-between">
+            <span>جمع کل:</span>
+            <strong id="total-price">0 تومان</strong>
+        </div>
+        <button class="btn btn-success w-100 mt-3" >پرداخت</button>
+    </div>
+</div>
+    
+    <main>
+        <section class="hero text-center bg-dark text-light py-5">
+            <div class="container">
+                <h1 class="display-4">خوش آمدید</h1>
+                <p class="lead"> سلامتی ، حس خوب</p>
+                <a href="#" class="btn btn-apple btn-lg">مشاهده محصولات</a>
+            </div>
+        </section>
+        <section class="products py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">محصولات ویژه </h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/aa.jpg" class="card-img-top" alt="چای یکم ">
+                            <div class="card-body">
+                                <h5 class="card-title">چای </h5>
+                                <p class="card-text">یه چای منحصربه‌فرد.</p>
+                                <a href="#"class="btn btn-apple">مشاهده جزئیات</a>
+                            </div>
+                        </div>
+
+                        
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/bb.jpg" class="card-img-top" alt="چای دوم">
+                        <div class="card-body">
+                            <h5 class="card-title">چای </h5>
+                            <p class="card-text">یه چای منحصربه‌فرد.</p>
+                            <a href="#" class="btn btn-apple rounded-pill">مشاهده جزئیات</a>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/cc.jpg"  class="card-img-top" alt="چای سوم">
+                            <div class="card-body">
+                                <h5 class="card-title">چای </h5>
+                                <p class="card-text">یه چای منحصربه‌فرد.</p>
+                                <a href="#" class="btn btn-apple rounded-pill">مشاهده جزئیات</a>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+            </div>
+        </section>
+        
+            </main>
+        <footer class="bg-dark text-light py-4">
+            <div class="container text-center">
+                <p>تمامی حقوق محفوظ است &copy; 2024</p>
+            </div>
+        </footer>
+    <!-- اسکریپت‌ها -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cartprofscript.js"></script>
+</body>
+</html>
