@@ -35,5 +35,5 @@
 
 ### 1. کلون کردن پروژه
 ```bash
-git clone https://github.com/your-username/health-web-prescription.git
-cd health-web-prescription
+git clone https://github.com/Verticom-AI/AdminProjectFront.git
+cd AdminProjectFront
